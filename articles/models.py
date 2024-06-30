@@ -11,11 +11,11 @@ class Article(models.Model):
     ('travel_tips', 'Travel Tips'),
   ]
 
-  title = models.CharField(max_length=200)
-  content = models.TextField()
+  title = models.CharField(max_length=200, blank=False)
+  content = models.TextField(blank=False)
   media = models.URLField(blank=True, null=True)
-  category = models.CharField(max_length=50,choices=CATEGORY_CHOICES)
-  author = models.CharField(max_length=100, blank=True)
+  category = models.CharField(max_length=50, choices=CATEGORY_CHOICES, blank=False)
+  author = models.CharField(max_length=100, blank=True, null=True)
 
   def __str__(self):
     return self.title
